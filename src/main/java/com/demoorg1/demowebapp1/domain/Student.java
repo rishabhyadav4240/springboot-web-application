@@ -35,6 +35,10 @@ public class Student {
     private Address address;
 
     @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name = "stu_id")
+    @JoinColumn(name = "stu_id",referencedColumnName="id")
     private List<Teacher> teacher;
+
+    @OneToMany(mappedBy="student")
+    private List<Teacher> teachers;
+
 }

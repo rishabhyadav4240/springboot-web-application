@@ -3,7 +3,6 @@ package com.demoorg1.demowebapp1.converter;
 
 import com.demoorg1.demowebapp1.Dto.StudentDto;
 import com.demoorg1.demowebapp1.domain.Student;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +21,7 @@ public class StudentConverter {
                 .build();
     }
 
-    public static   Student toStudent(StudentDto studentDto){
+    public static   Student toStudent(Student studentDto){
         if(studentDto==null){
             return null;
         }
@@ -35,7 +34,7 @@ public class StudentConverter {
 
     }
 
-    public static List<Student> ToStudentDtoS (List<StudentDto> studentDtoList){
+    public static List<Student> ToStudentDtoS (List<Student> studentDtoList){
         return  studentDtoList.stream().map(a -> toStudent(a)).collect(Collectors.toList());
     }
 

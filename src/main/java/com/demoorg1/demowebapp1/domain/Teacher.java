@@ -1,5 +1,6 @@
 package com.demoorg1.demowebapp1.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
@@ -21,6 +22,8 @@ public class Teacher {
     @Column(name="teach_name")
     private String name;
     private String subject;
-
+  @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
 
 }

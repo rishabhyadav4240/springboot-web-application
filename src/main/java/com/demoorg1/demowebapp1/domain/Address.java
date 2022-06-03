@@ -1,7 +1,6 @@
 package com.demoorg1.demowebapp1.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -9,7 +8,9 @@ import javax.persistence.*;
 @Table(name="Address")
 @Getter
 @Setter
-
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Address {
 
     @Id
@@ -18,4 +19,6 @@ public class Address {
     private Long addressId;
     private String city;
     private String addressType;
+
+
 }

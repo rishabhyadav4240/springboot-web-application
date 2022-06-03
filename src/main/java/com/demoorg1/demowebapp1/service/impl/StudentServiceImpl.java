@@ -31,8 +31,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student getStudent(Long id) {
-
-        return studentRepository.findById(id).get();
+        return studentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", "id", id));
     }
 
     @Override
@@ -62,7 +62,7 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.getStudentByGrade(grade);
     }
 
-    public Page<Student> getStudentPagination(Integer pageNumber,Integer pageSize){
+    public Page<Student> getStudentPagination(Integer pageNumber,Integer pageSize,String field){
         Pageable pageable= PageRequest.of(pageNumber,pageSize, Sort.Direction.ASC, "name");
         return studentRepository.findAll(pageable);
     }
